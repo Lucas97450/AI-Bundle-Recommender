@@ -6,13 +6,6 @@ Build a complete **bundle-recommendation engine** from raw RetailRocket logs to 
 
 ## Data Architecture (Medallion)
 
-| Layer | Purpose | Main objects |
-|-------|---------|--------------|
-| **Bronze** | Raw CSV import | `events`, `item_properties_part*` |
-| **Silver** | Cleansed & modeled | `purchases`, `co_edges`, `item_features` |
-| **Gold** | Business-ready | `bundle_mv` (indexed view = top-3 bundle items per product) |
-
-
 ---
 
 ## Deliverables
