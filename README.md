@@ -46,7 +46,7 @@ Build a complete **bundle-recommendation engine** from raw RetailRocket logs to 
 
 ## Repository Structure
 ```
-data-warehouse-project/
+RetailRocket-Graph-Bundle-Recommender/
 │
 ├── datasets/                           # Raw datasets used for the project (ERP and CRM data)
 │
