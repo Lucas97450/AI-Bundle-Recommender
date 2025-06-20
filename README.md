@@ -1,4 +1,4 @@
-# RetailRocket Graph-Bundle Recommender
+# AI RetailRocket Graph-Bundle Recommender
 
 Build a complete **bundle-recommendation engine** from raw RetailRocket logs to a production REST API that serves “Frequently Bought Together” bundles in <150 ms.
 
@@ -46,7 +46,7 @@ Build a complete **bundle-recommendation engine** from raw RetailRocket logs to 
 
 ## Repository Structure
 ```
-RetailRocket-Graph-Bundle-Recommender/
+AI-RetailRocket-Graph-Bundle-Recommender/
 │
 ├── datasets/                           # Raw datasets used for the project (ERP and CRM data)
 │
