@@ -44,31 +44,31 @@ Build a complete **bundle-recommendation engine** from raw RetailRocket logs to 
 
 ---
 
-## Repository Layout
-
-bundle-reco/
-├─ datasets/             # RetailRocket CSVs
-├─ dbt/                  # Bronze / Silver / Gold models
-├─ sql/                  # DDL + SQL Agent jobs
-│ ├─ 01_import.sql
-│ ├─ 02_views.sql
-│ └─ jobs/refresh_mv.sql
-├─ model/                # GraphSAGE training & inference
-│ ├─ train.py
-│ ├─ infer.py
-│ └─ artifacts/
-├─ api/                  # FastAPI service (Dockerable)
-│ ├─ main.py
-│ └─ Dockerfile
-├─ docker-compose.yml    # Local dev stack
-├─ docs/                 # Diagrams, KPI screenshots, demo video
-│ ├─ architecture.png
-│ └─ demo.mp4
-├─ tests/ # dbt + pytest suites
-├─ README.md # ← this file
-├─ LICENSE # MIT
-└─ requirements.txt      # Python deps (torch, pyg, fastapi…)
-
+## Repository Structure
+```
+data-warehouse-project/
+│
+├── datasets/                           # Raw datasets used for the project (ERP and CRM data)
+│
+├── docs/                               # Project documentation and architecture details
+│   ├──
+│   ├──
+│   ├──
+│   ├──
+│   ├──
+│
+├── scripts/                            # SQL scripts for ETL and transformations
+│   ├── bronze/                         # Scripts for extracting and loading raw data
+│   ├── silver/                         # Scripts for cleaning and transforming data
+│   ├── gold/                           # Scripts for creating analytical models
+│
+├── tests/                              # Test scripts and quality files
+│
+├── README.md                           # Project overview and instructions
+├── LICENSE                             # License information for the repository
+├── .gitignore                          # Files and directories to be ignored by Git
+└── requirements.txt                    # Dependencies and requirements for the project
+```
 ---
 
 ## Quick Start
