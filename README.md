@@ -90,9 +90,17 @@ docker-compose up --build
 
 # test
 curl "http://localhost:8000/recommend?item_id=287864"
+```
+## License
 
-| KPI             | Target   | Location               |
-| --------------- | -------- | ---------------------- |
-| Recall\@20      | ≥ 0.20   | `notebooks/eval.ipynb` |
-| Avg bundle lift | +1.5×    | Power BI               |
-| API p95 latency | < 150 ms | Azure logs             |
+This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and share this project with proper attribution.
+
+
+## About Me
+
+I’m a computer science student at Université de Montréal, passionate about data engineering, machine learning, and cloud architecture. I build real-world data pipelines, dashboards, and smart systems that solve actual business problems.
+
+Currently focused on:
+- Designing end-to-end data platforms (SQL, Airflow, dbt, AWS)
+- Building ML-powered security tools and real-time analytics systems
+- Improving my skills in MLOps and scalable AI deployment
