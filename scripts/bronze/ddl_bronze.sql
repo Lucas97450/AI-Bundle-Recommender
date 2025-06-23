@@ -29,10 +29,11 @@ IF OBJECT_ID ('bronze.events', 'U') IS NOT NULL
 GO
 
 CREATE TABLE bronze.events (
-timestamp     BIGINT,
-visitor_id    BIGINT,
-event         NVARCHAR(50),
-item_id       BIGINT
+timestamp      INT,
+visitor_id     INT,
+event          NVARCHAR(50),
+item_id        INT,
+transaction_id INT	
 
 )
 
