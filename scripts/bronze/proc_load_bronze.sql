@@ -32,7 +32,7 @@ BEGIN
 
 			PRINT '>>  Inserting data into: bronze.category_tree'
             BULK INSERT bronze.category_tree
-            FROM 'C:\Users\lucas\Desktop\projets\datasets\category_tree.csv'
+            FROM 'dataset-path'
             WITH (
 				FIRSTROW = 2,
 				FIELDTERMINATOR = ',',
@@ -58,7 +58,7 @@ BEGIN
 			);
 
 			BULK INSERT events_raw
-			FROM 'C:\Users\lucas\Desktop\projets\datasets\events.csv'
+			FROM 'dataset-path'
 			WITH (
 				FIRSTROW = 2,
 				FIELDTERMINATOR = ',',
@@ -87,7 +87,7 @@ BEGIN
 
 			PRINT '>>  Inserting data into: bronze.item_properties_part_1'
             BULK INSERT bronze.item_properties_part_1
-            FROM 'C:\Users\lucas\Desktop\projets\datasets\item_properties_part1.csv'
+            FROM 'dataset-path'
             WITH (
 				FIRSTROW = 2,
 				FIELDTERMINATOR = ',',
@@ -105,7 +105,7 @@ BEGIN
 
 			PRINT '>>  Inserting data into: bronze.item_properties_part_2'
             BULK INSERT bronze.item_properties_part_2
-            FROM 'C:\Users\lucas\Desktop\projets\datasets\item_properties_part2.csv'
+            FROM 'dataset-path'
             WITH (
 				FIRSTROW = 2,
 				FIELDTERMINATOR = ',',
