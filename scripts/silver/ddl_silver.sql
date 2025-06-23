@@ -50,7 +50,7 @@ CREATE TABLE silver.item_properties_part_1(
 timestamp     BIGINT,
 itemid        BIGINT,
 property      VARCHAR(100),
-value         VARCHAR(225)
+value         VARCHAR(MAX)
 )
 
 GO
@@ -64,7 +64,7 @@ CREATE TABLE silver.item_properties_part_2(
 timestamp     BIGINT,
 itemid        BIGINT,
 property      VARCHAR(100),
-value         VARCHAR(225)
+value         VARCHAR(MAX)
 )
 
 GO
