@@ -32,7 +32,7 @@ BEGIN
 
 			PRINT '>>  Inserting data into: bronze.category_tree'
             BULK INSERT bronze.category_tree
-            FROM 'dataset-path'
+            FROM 'C:\Users\lucas\Desktop\projets\datasets\category_tree.csv'
             WITH (
 				FIRSTROW = 2,
 				FIELDTERMINATOR = ',',
@@ -54,11 +54,12 @@ BEGIN
 				col1 NVARCHAR(MAX),
 				col2 NVARCHAR(MAX),
 				col3 NVARCHAR(MAX),
-				col4 NVARCHAR(MAX)
+				col4 NVARCHAR(MAX),
+				col5 NVARCHAR(MAX)
 			);
 
 			BULK INSERT events_raw
-			FROM 'dataset-path'
+			FROM 'C:\Users\lucas\Desktop\projets\datasets\events.csv'
 			WITH (
 				FIRSTROW = 2,
 				FIELDTERMINATOR = ',',
@@ -67,12 +68,13 @@ BEGIN
 			);
 
 			PRINT '>>  Inserting data into: bronze.events'
-            INSERT INTO bronze.events (timestamp, visitor_id, event, item_id)
+            INSERT INTO bronze.events (timestamp, visitor_id, event, item_id, transaction_id)
 			SELECT
 				TRY_CAST(col1 AS BIGINT),
 				TRY_CAST(col2 AS BIGINT),
 				col3,
-				TRY_CAST(col4 AS BIGINT)
+				TRY_CAST(col4 AS BIGINT),
+				TRY_CAST(col5 AS BIGINT)
 			FROM events_raw;
 
 			SET @end_time = GETDATE();
@@ -87,7 +89,7 @@ BEGIN
 
 			PRINT '>>  Inserting data into: bronze.item_properties_part_1'
             BULK INSERT bronze.item_properties_part_1
-            FROM 'dataset-path'
+            FROM 'C:\Users\lucas\Desktop\projets\datasets\item_properties_part1.csv'
             WITH (
 				FIRSTROW = 2,
 				FIELDTERMINATOR = ',',
@@ -105,7 +107,7 @@ BEGIN
 
 			PRINT '>>  Inserting data into: bronze.item_properties_part_2'
             BULK INSERT bronze.item_properties_part_2
-            FROM 'dataset-path'
+            FROM 'C:\Users\lucas\Desktop\projets\datasets\item_properties_part1.csv'
             WITH (
 				FIRSTROW = 2,
 				FIELDTERMINATOR = ',',
