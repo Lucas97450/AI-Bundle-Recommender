@@ -8,8 +8,6 @@ Script Purpose:
 	  Run this script to re-define the DDL structure of 'bronze' Tables
 ===============================================================================
 */
-CREATE SCHEMA bronze;
-GO
 
 -- Category_tree Table
 IF OBJECT_ID ('bronze.category_tree', 'U') IS NOT NULL
@@ -29,11 +27,11 @@ IF OBJECT_ID ('bronze.events', 'U') IS NOT NULL
 GO
 
 CREATE TABLE bronze.events (
-timestamp      INT,
-visitor_id     INT,
+timestamp      BIGINT,
+visitor_id     BIGINT,
 event          NVARCHAR(50),
-item_id        INT,
-transaction_id INT	
+item_id        BIGINT,
+transaction_id BIGINT	
 
 )
 
@@ -48,7 +46,7 @@ CREATE TABLE bronze.item_properties_part_1(
 timestamp     BIGINT,
 itemid        BIGINT,
 property      VARCHAR(100),
-value         VARCHAR(225)
+value         VARCHAR(MAX)
 )
 
 GO
@@ -62,7 +60,7 @@ CREATE TABLE bronze.item_properties_part_2(
 timestamp     BIGINT,
 itemid        BIGINT,
 property      VARCHAR(100),
-value         VARCHAR(225)
+value         VARCHAR(MAX)
 )
 
 GO
