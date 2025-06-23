@@ -19,7 +19,8 @@ GO
 
 CREATE TABLE silver.category_tree (
 category_id   INT,
-parent_id     INT
+parent_id     INT,
+is_root	      INT
 );
 
 GO
