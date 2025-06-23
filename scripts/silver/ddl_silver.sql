@@ -30,7 +30,7 @@ IF OBJECT_ID ('silver.events', 'U') IS NOT NULL
 GO
 
 CREATE TABLE silver.events (
-timestamp     BIGINT,
+timestamp     DATETIME,
 visitor_id    BIGINT,
 event         NVARCHAR(50),
 item_id       BIGINT
