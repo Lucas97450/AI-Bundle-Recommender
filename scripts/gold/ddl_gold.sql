@@ -1,3 +1,14 @@
+/*
+===============================================================================
+DDL Script: Create Gold Tables
+===============================================================================
+Script Purpose:
+    This script creates tables in the 'gold' schema, dropping existing tables 
+    if they already exist.
+	  Run this script to re-define the DDL structure of 'gold' Tables
+===============================================================================
+*/
+
 IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name = 'gold')
     EXEC('CREATE SCHEMA gold');
 GO
