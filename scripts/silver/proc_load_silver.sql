@@ -55,6 +55,29 @@ BEGIN
 			) AS cleaned
 			WHERE rn = 1;
 
+		SET @start_time = GETDATE();
+			PRINT '>> Truncating Table: silver.events';
+			TRUNCATE TABLE silver.category_tree;
+			PRINT '>> Inserting Data Into: silver.events';
+		INSERT INTO silver.events(
+				timestamp,
+				visitor_id,
+				event,
+				item_id,
+				transaction_id
+		)
+		SELECT
+		  DATEADD(SECOND, CAST(timestamp / 1000 AS BIGINT), '1970-01-01') AS timestamp,
+		  CAST(visitor_id AS VARCHAR(64)) AS visitor_id,
+		  LOWER(event) AS event_type,
+		  CAST(item_id AS INT) AS item_id,
+		  CASE 
+			WHEN event = 'transaction' THEN CAST(transaction_id AS INT)
+			ELSE NULL
+		  END AS transaction_id
+		FROM bronze.events
+		WHERE visitor_id IS NOT NULL AND item_id IS NOT NULL;
+
 		SET @batch_end_time = GETDATE();
 		PRINT '=========================================='
 		PRINT 'Loading Silver Layer is Completed';
@@ -64,7 +87,7 @@ BEGIN
 	END TRY
 	BEGIN CATCH
 		PRINT '=========================================='
-		PRINT 'ERROR OCCURED DURING LOADING BRONZE LAYER'
+		PRINT 'ERROR OCCURED DURING LOADING SILVER LAYER'
 		PRINT 'Error Message' + ERROR_MESSAGE();
 		PRINT 'Error Message' + CAST (ERROR_NUMBER() AS NVARCHAR);
 		PRINT 'Error Message' + CAST (ERROR_STATE() AS NVARCHAR);
