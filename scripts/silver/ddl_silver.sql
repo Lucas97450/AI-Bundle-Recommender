@@ -41,30 +41,41 @@ transaction_id INT
 
 GO
 
--- Item Properties Table part 1
-IF OBJECT_ID ('silver.item_properties_part_1', 'U') IS NOT NULL
-        DROP TABLE silver.item_properties_part_1;
+-- Item Properties kv Table
+IF OBJECT_ID ('silver.item_properties_kv', 'U') IS NOT NULL
+        DROP TABLE silver.item_properties_kv;
 GO
 
-CREATE TABLE silver.item_properties_part_1(
-timestamp     BIGINT,
-itemid        BIGINT,
-property      VARCHAR(100),
-value         VARCHAR(MAX)
+CREATE TABLE silver.item_properties_kv (
+        snapshot_ts DATETIME      NULL,
+        item_id     BIGINT        NULL,
+        prop_key    NVARCHAR(100) NOT NULL,
+        prop_val    NVARCHAR(MAX) NULL
 )
 
 GO
 
--- Item Properties Table part 2
-IF OBJECT_ID ('silver.item_properties_part_2', 'U') IS NOT NULL
-        DROP TABLE silver.item_properties_part_2;
+-- Item category Table
+IF OBJECT_ID('silver.item_category','U') IS NOT NULL
+	DROP TABLE silver.item_category;
 GO
-
-CREATE TABLE silver.item_properties_part_2(
-timestamp     BIGINT,
-itemid        BIGINT,
-property      VARCHAR(100),
-value         VARCHAR(MAX)
+	
+CREATE TABLE silver.item_category (
+        item_id     BIGINT PRIMARY KEY,
+        category_id INT
 )
 
 GO
+
+-- Item availability Table
+IF OBJECT_ID('silver.item_availability','U') IS NOT NULL
+	DROP TABLE silver.item_availability
+GO
+	
+CREATE TABLE silver.item_availability (
+        item_id      BIGINT PRIMARY KEY,
+        is_available BIT
+)
+
+GO
+
